@@ -41,8 +41,9 @@ LOCK = KC.LWIN(KC.L)
 # Layers
 TAB_NAV = KC.LT(2, KC.TAB, prefer_hold = True)
 CTL_NUM = KC.LT(3, KC.OS(KC.LCTL), prefer_hold = True)
-ENT_SYM = KC.LT(4, KC.ENTER, prefer_hold = True)
-ESC_EXT = KC.LT(5, KC.ESC, prefer_hold = True)
+ENT_MDA = KC.LT(6, KC.ENTER, prefer_hold = True)
+LOCK_SYM1 = KC.LT(4, LOCK, prefer_hold = True)
+ESC_SYM2 = KC.LT(5, KC.ESC, prefer_hold = True)
 
 # Mod taps
 SPC_SH = KC.MT(KC.SPACE, KC.LSHIFT, tap_interrupted=True)
@@ -52,7 +53,7 @@ US_SH = KC.MT(KC.UNDS, KC.RSHIFT, tap_interrupted=True)
 ZERO_SH = KC.MT(KC.N0, KC.RSHIFT, tap_interrupted=True)
 
 
-TRACK = KC.MO(6) # For trackball, later
+TRACK = KC.MO(7) # For trackball, later
 CANT = KC.NO # Impossible (do not map this)
 
 keyboard.keymap = [
@@ -60,13 +61,13 @@ keyboard.keymap = [
         KC.Q,       KC.W,       KC.E,       KC.R,       KC.T,               KC.Y,       KC.U,       KC.I,       KC.O,       KC.P,
         KC.A,       KC.S,       KC.D,       KC.F,       KC.G,               KC.H,       KC.J,       KC.K,       KC.L,       KC.SCLN,
         KC.Z,       KC.X,       KC.C,       KC.V,       KC.B,               KC.N,       KC.M,       KC.COMM,    KC.DOT,     KC.SLSH,
-                                TAB_NAV,    SPC_SH,     CTL_NUM,            ENT_SYM,    BSPC_SH,    TRACK,
+                                TAB_NAV,    SPC_SH,     CTL_NUM,            ENT_MDA,    BSPC_SH,    TRACK,
     ],
     [   # 1 - COLEMAK-DH
         KC.Q,       KC.W,       KC.F,       KC.P,       KC.B,               KC.J,       KC.L,       KC.U,       KC.Y,       KC.SCLN,
         KC.A,       KC.R,       KC.S,       KC.T,       KC.G,               KC.M,       KC.N,       KC.E,       KC.I,       KC.O,
         KC.Z,       KC.X,       KC.D,       KC.V,       KC.Z,               KC.K,       KC.H,       KC.COMM,    KC.DOT,     KC.SLSH,
-                                TAB_NAV,    SPC_SH,     CTL_NUM,            ENT_SYM,    BSPC_SH,    TRACK,
+                                TAB_NAV,    SPC_SH,     CTL_NUM,            ENT_MDA,    BSPC_SH,    TRACK,
     ],
     [   # 2 - Nav
         KC.ESC,     KC.NO,      KC.NO,      KC.NO,      KC.NO,              KC.HOME,    KC.PGDN,    KC.PGUP,    KC.END,     KC.NO,  
@@ -76,23 +77,29 @@ keyboard.keymap = [
     ],
     [   # 3 - Num
         KC.N1,      KC.N2,      KC.N3,      KC.N4,      KC.N5,              KC.N6,      KC.N7,      KC.N8,      KC.N9,      KC.N0,  
-        KC.PSLS,    KC.PMNS,    KC.EQL,     KC.PPLS,    KC.PAST,            KC.DLR,     KC.N4,      KC.N5,      KC.N6,      KC.PERC,
+        OS_LGUI,    OS_LALT,    OS_LSFT,    OS_LCTL,    KC.NO,              KC.DLR,     KC.N4,      KC.N5,      KC.N6,      KC.PERC,
         KC.NO,      KC.NO,      KC.NO,      KC.NO,      KC.NO,              KC.NO,      KC.N1,      KC.N2,      KC.N3,      KC.NO,  
-                                CANT,       CANT,       CANT,               ESC_EXT,    ZERO_SH,    TRACK,
+                                CANT,       CANT,       CANT,               KC.ESC,     ZERO_SH,    TRACK,
     ],
-    [   # 4 - Sym 
+    [   # 4 - Sym1
         KC.TILD,    KC.NO,      KC.NO,      KC.NO,      KC.NO,              KC.CIRC,    KC.PIPE,    KC.EXLM,    KC.AMPR,    KC.COLN, 
-        KC.AT,      KC.HASH,    KC.LCBR,    KC.LPRN,    KC.LBRC,            KC.GRV,     KC.LABK,    KC.EQL,     KC.RABK,    KC.QUOT,
+        OS_LGUI,    OS_LALT,    OS_LSFT,    OS_LCTL,    KC.NO,              KC.GRV,     KC.LABK,    KC.EQL,     KC.RABK,    KC.QUOT,
         KC.NO,      KC.NO,      KC.RCBR,    KC.RPRN,    KC.RBRC,            KC.NO,      KC.NO,      KC.NO,      KC.NO,      KC.QUES,  
-                                STAB,       US_SH,      ESC_EXT,            CANT,       CANT,       TRACK,
+                                CANT,       CANT,       CANT,               KC.NO,      US_SH,      TRACK,
     ],
-    [   # 5 - Ext
+    [   # 5 - Sym2
+        KC.TILD,    KC.NO,      KC.NO,      KC.NO,      KC.NO,              KC.CIRC,    KC.PIPE,    KC.EXLM,    KC.AMPR,    KC.COLN, 
+        OS_LGUI,    OS_LALT,    OS_LSFT,    OS_LCTL,    KC.NO,              KC.GRV,     KC.LABK,    KC.EQL,     KC.RABK,    KC.QUOT,
+        KC.NO,      KC.NO,      KC.RCBR,    KC.RPRN,    KC.RBRC,            KC.NO,      KC.NO,      KC.NO,      KC.NO,      KC.QUES,  
+                                CANT,       CANT,       CANT,               STAB,       US_SH,      TRACK,            
+    ],
+    [   # 6 - Media
         KC.DF(0),   KC.NO,      KC.NO,      KC.NO,      KC.NO,              KC.NO,      KC.BRID,    KC.BRIU,    KC.NO,      KC.DF(1),  
         KC.NO,      KC.MPRV,    KC.MPLY,    KC.MNXT,    KC.NO,              KC.MUTE,    KC.VOLD,    KC.VOLU,    KC.MUTE,    KC.NO,
         KC.NO,      KC.NO,      KC.NO,      KC.NO,      KC.NO,              KC.NO,      KC.NO,      KC.NO,      KC.NO,      KC.NO,  
-                                CANT,       CANT,       CANT,               CANT,       CANT,       TRACK,
+                                LOCK_SYM1,  KC.NO,      ESC_SYM2,           CANT,       CANT,       TRACK,
     ],
-    [   # 6 - Mouse
+    [   # 7 - Mouse
         KC.NO,      KC.NO,      KC.MS_UP,   KC.NO,      KC.NO,              KC.NO,      KC.NO,      KC.MB_MMB,  KC.NO,      KC.NO,  
         KC.NO,      KC.MS_LT,   KC.MS_DN,   KC.MS_RT,   KC.NO,              KC.NO,      KC.MB_LMB,  KC.MB_RMB,  KC.NO,      KC.NO,  
         KC.NO,      KC.NO,      KC.NO,      KC.NO,      KC.NO,              KC.NO,      KC.NO,      KC.NO,      KC.NO,      KC.NO,  
