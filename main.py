@@ -43,6 +43,8 @@ SWF_EXT = KC.LT(5, KC.NO, prefer_hold = True)
 # Mod taps
 BSPC_SH = KC.MT(KC.BSPACE, KC.RSHIFT, tap_interrupted=True)
 ENT_SH = KC.MT(KC.ENTER, KC.RSHIFT, tap_interrupted=True)
+Z_SH = KC.MT(KC.Z, KC.LSHIFT, tap_interrupted=True)
+SL_SH = KC.MT(KC.SLSH, KC.RSHIFT, tap_interrupted=True)
 #US_SH = KC.MT(KC.UNDS, KC.RSHIFT, tap_interrupted=True)
 ZERO_SH = KC.MT(KC.N0, KC.RSHIFT, tap_interrupted=True)
 
@@ -53,7 +55,7 @@ keyboard.keymap = [
     [   # 0 - QWERTY
         KC.Q,       KC.W,       KC.E,       KC.R,       KC.T,               KC.Y,       KC.U,       KC.I,       KC.O,       KC.P,
         KC.A,       KC.S,       KC.D,       KC.F,       KC.G,               KC.H,       KC.J,       KC.K,       KC.L,       KC.SCLN,
-        KC.Z,       KC.X,       KC.C,       KC.V,       KC.B,               KC.N,       KC.M,       KC.COMM,    KC.DOT,     KC.SLSH,
+        Z_SH,       KC.X,       KC.C,       KC.V,       KC.B,               KC.N,       KC.M,       KC.COMM,    KC.DOT,     SL_SH,
                                 TAB_SYM,    SPC_NAV,    SWB_NUM,            SWF_EXT,    BSPC_SH,    TRACK,
     ],
     [   # 1 - COLEMAK-DH
