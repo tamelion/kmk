@@ -54,8 +54,16 @@ CANT = KC.NO # Impossible (do not map this)
 combos.combos = [
     Sequence((KC.COMM, KC.J), KC.ESC, timeout=200),
     #Chord((KC.L, KC.QUOT), KC.ENT),
-    Chord((KC.A, KC.S), KC.LALT),
-    Chord((KC.D, KC.F), KC.LCTL),
+
+    # LHS
+    Chord((12,13), KC.LALT, match_coord=True),
+    Chord((13,14), KC.LALT(KC.LCTL), match_coord=True),
+    Chord((14,15), KC.LCTL, match_coord=True),
+
+    # RHS
+    Chord((18,19), KC.RCTL, match_coord=True),
+    Chord((19,20), KC.RALT(KC.RCTL), match_coord=True),
+    Chord((20,21), KC.RALT, match_coord=True),
 ]
 
 keyboard.keymap = [
